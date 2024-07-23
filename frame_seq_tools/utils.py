@@ -294,6 +294,20 @@ class FrameSeqTools():
 
         return res, one_hot, multi_hot
 
+    def merge(self, prob=[0.36, 0.36, 0.1, 0.06, 0.12]):
+        prob = np.array(prob)
+        assert prob.shape == (5, )
+        prob /= prob.sum()
+
+        f = np.random.choice([
+            self.forced_merge,
+            self.gradual_transition_merge,
+            self.push_transition_merge,
+            self.wipe_transition_merge,
+            self.frame_crop_split
+        ], p=prob)
+        return f()
+
     ###############################################
 
     def frame_darken(self, dark_coef=0.85):
