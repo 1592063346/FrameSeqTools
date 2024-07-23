@@ -8,8 +8,6 @@ from frame_seq_tools.tools import DistItem, dist_2D, dist_2_segment
 
 class FrameSeqTools():
     '''
-    https://shengshu.feishu.cn/docx/OIw6dSP4roDZ8Nx1D4AcSO7onUb?from=from_copylink
-
     Frame sequence merge functions:
         - `forced_merge`
         - `gradual_transition_merge`
