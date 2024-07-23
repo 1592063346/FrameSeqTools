@@ -265,6 +265,13 @@ class FrameSeqTools():
                math.ceil(ratio * height), math.ceil(ratio * width)
 
     def frame_crop_split(self, location_type=-1, window_ratio=0.8):
+        '''
+        `location_type`:
+            - 0: center
+            - 1~4: in order [top, left, right, bottom]
+            - 5~8: in order [top left, top right, bottom left, bottom right]
+            - -1: random
+        '''
         sx, sy, lx, ly = self.get_window(location_type, window_ratio)
 
         frame_num = self.frames1.shape[0]
