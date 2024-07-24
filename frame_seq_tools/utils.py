@@ -14,12 +14,14 @@ class FrameSeqTools():
         - `push_transition_merge`
         - `wipe_transition_merge`
         - `frame_crop_split`
+        - `merge` (summary method, for large-scale generation)
 
     Data enhancement functions:
         - `frame_darken`
         - `frame_glare`
         - `frame_extract`
         - `frame_crop`
+        - `enhance` (summary method, for large-scale generation)
 
     The shape of frames is `(frame_num, height, width, 3)`.
     '''
@@ -391,3 +393,17 @@ class FrameSeqTools():
             )
 
         return res
+
+    def enhance(self, prob=[0.8, 0.05, 0.03, 0.06, 0.06]):
+        prob = np.array(prob)
+        assert prob.shape == (5, )
+        prob /= prob.sum()
+
+        f = np.random.choice([
+            lambda: self.frames1,
+            self.frame_darken,
+            self.frame_glare,
+            self.frame_extract,
+            self.frame_crop
+        ], p=prob)
+        return f()
