@@ -85,7 +85,7 @@ new_frames2 = tools.frame_glare()
 以一定概率对上述 5 个方法做随机调用。
 
 **参数：** **`prob`**
-  - **`prob`**：各方法调用概率。为一个长度为 5 的非负数组，表示各方法调用的概率权重。数组可以不必总和归一化。默认为 [0.36, 0.36, 0.1, 0.06, 0.12]
+  - **`prob`**：`forced_merge`, `gradual_transition_merge`, `push_transition_merge`, `wipe_transition_merge`, `frame_crop_split` 5 个方法的调用概率。为一个长度为 5 的非负数组，表示各方法调用的概率权重。数组可以不必总和归一化。默认为 [0.36, 0.36, 0.1, 0.06, 0.12]
 
 ### 2.2 数据增强
 
